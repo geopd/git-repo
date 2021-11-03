@@ -166,7 +166,7 @@ If the remote SSH daemon is Gerrit Code Review, version 2.0.10 or
 later is required to fix a server side protocol bug.
 
 """
-  PARALLEL_JOBS = 1
+  PARALLEL_JOBS = 12
 
   def _CommonOptions(self, p):
     if self.manifest:
@@ -636,7 +636,7 @@ later is required to fix a server side protocol bug.
         )
 
     cpu_count = os.cpu_count()
-    jobs = min(self.jobs, cpu_count)
+    jobs = max(self.jobs, cpu_count + 6)
 
     if jobs < 2:
       for (run_gc, bare_git) in tidy_dirs.values():
@@ -937,7 +937,7 @@ later is required to fix a server side protocol bug.
       self.jobs = opt.jobs
     if self.jobs > 1:
       soft_limit, _ = _rlimit_nofile()
-      self.jobs = min(self.jobs, (soft_limit - 5) // 3)
+      self.jobs = min(self.jobs + 6, soft_limit - 5)
 
     if opt.manifest_name:
       self.manifest.Override(opt.manifest_name)

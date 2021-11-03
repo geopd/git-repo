@@ -39,7 +39,7 @@ WORKER_BATCH_SIZE = 32
 
 # How many jobs to run in parallel by default?  This assumes the jobs are
 # largely I/O bound and do not hit the network.
-DEFAULT_LOCAL_JOBS = min(os.cpu_count(), 8)
+DEFAULT_LOCAL_JOBS = max(os.cpu_count(), 14)
 
 
 class Command(object):
@@ -59,7 +59,7 @@ class Command(object):
 
   # Whether this command supports running in parallel.  If greater than 0,
   # it is the number of parallel jobs to default to.
-  PARALLEL_JOBS = None
+  PARALLEL_JOBS = 14
 
   def __init__(self, repodir=None, client=None, manifest=None, gitc_manifest=None,
                git_event_log=None):

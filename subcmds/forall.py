@@ -120,7 +120,7 @@ terminal and are not redirected.
 If -e is used, when a command exits unsuccessfully, '%prog' will abort
 without iterating through the remaining projects.
 """
-  PARALLEL_JOBS = DEFAULT_LOCAL_JOBS
+  PARALLEL_JOBS = 14
 
   @staticmethod
   def _cmd_option(option, _opt_str, _value, parser):
