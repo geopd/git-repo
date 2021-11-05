@@ -626,7 +626,7 @@ later is required to fix a server side protocol bug.
       # Only call git gc once per objdir, but call pack-refs for the remainder.
       if project.objdir not in tidy_dirs:
         tidy_dirs[project.objdir] = (
-            True,  # Run a full gc.
+            False,  # Do not run a full gc.
             project.bare_git,
         )
       elif project.gitdir not in tidy_dirs:
