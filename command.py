@@ -34,7 +34,7 @@ GENERATE_MANPAGES = os.environ.get('_REPO_GENERATE_MANPAGES_') == ' indeed! '
 # iterating through powers of two until the overall performance no longer
 # improved. The performance of this batch size is not a function of the
 # number of cores on the system.
-WORKER_BATCH_SIZE = 32
+WORKER_BATCH_SIZE = 48
 
 
 # How many jobs to run in parallel by default?  This assumes the jobs are
